@@ -40,13 +40,14 @@ function initializeGrid(value) {
             
 
         });
+
         gridItem.addEventListener('touchstart', function(e) {
             e.preventDefault(); // Prevent the default scroll behavior on touchstart
             let currentColor = window.getComputedStyle(gridItem).backgroundColor;
             gridItem.style.backgroundColor = chooseColor(currentColor, color);
           });
         
-          gridItem.addEventListener('touchmove', function(e) {
+        gridItem.addEventListener('touchmove', function(e) {
             e.preventDefault(); // Prevent the default scroll behavior on touchmove
         
             const touch = e.touches[0];
@@ -55,10 +56,10 @@ function initializeGrid(value) {
             
             // Check if the element is a grid item and change its color
             if (element && element.classList.contains('grid-item')) {
-                let currentColor = window.getComputedStyle(gridItem).backgroundColor;
-                gridItem.style.backgroundColor = chooseColor(currentColor, color);
+                let currentColor = window.getComputedStyle(element).backgroundColor;
+                element.style.backgroundColor = chooseColor(currentColor, color);
             }
-          });
+        });
     }
 }
 
