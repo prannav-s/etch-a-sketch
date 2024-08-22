@@ -31,23 +31,34 @@ function initializeGrid(value) {
         gridContainer.appendChild(gridItem);
 
         // Add mouseover event listener for color change
+        console.log(`Mouse over on div ${i + 1}`);
+
         gridItem.addEventListener('mouseover', function () {
             let currentColor = window.getComputedStyle(gridItem).backgroundColor;
-            console.log(`Current Color: ${currentColor}`);
-            if (gridContainer.classList.contains("rainbow")) {
-                color = getRandomRGB();
-                gridItem.style.backgroundColor = color;
-            } else if (gridContainer.classList.contains("shader")) {
-                color = adjustColorTowardsTarget(currentColor, '#706d6e', 0.2);
-                gridItem.style.backgroundColor = color;
-            } else if (gridContainer.classList.contains("lightener")) {
-                color = adjustColorTowardsTarget(currentColor, '#c9cacb', 0.2);
-                gridItem.style.backgroundColor = color;
-            } else {
-                gridItem.style.backgroundColor = color;
-            }
-            console.log(`Mouse over on div ${i + 1}`);
+            gridItem.style.backgroundColor = chooseColor(currentColor, color);
+            console.log(color)
+            
+
         });
+        gridItem.addEventListener('touchstart', function(e) {
+            e.preventDefault(); // Prevent the default scroll behavior on touchstart
+            let currentColor = window.getComputedStyle(gridItem).backgroundColor;
+            gridItem.style.backgroundColor = chooseColor(currentColor, color);
+          });
+        
+          gridItem.addEventListener('touchmove', function(e) {
+            e.preventDefault(); // Prevent the default scroll behavior on touchmove
+        
+            const touch = e.touches[0];
+            
+            const element = document.elementFromPoint(touch.clientX, touch.clientY);
+            
+            // Check if the element is a grid item and change its color
+            if (element && element.classList.contains('grid-item')) {
+                let currentColor = window.getComputedStyle(gridItem).backgroundColor;
+                gridItem.style.backgroundColor = chooseColor(currentColor, color);
+            }
+          });
     }
 }
 
@@ -89,6 +100,19 @@ buttons.forEach((button) => {
         }
     });
 });
+
+function chooseColor(currentColor, color) {
+    console.log(`Current Color: ${currentColor}`);
+    if (gridContainer.classList.contains("rainbow")) {
+        color = getRandomRGB();
+    } else if (gridContainer.classList.contains("shader")) {
+        color = adjustColorTowardsTarget(currentColor, '#706d6e', 0.2);
+    } else if (gridContainer.classList.contains("lightener")) {
+        color = adjustColorTowardsTarget(currentColor, '#c9cacb', 0.2);
+    } else {
+    }
+    return color;
+}
 
 function getRandomRGB() {
     // Generate random values for red, green, and blue (0-255)
