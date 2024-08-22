@@ -67,6 +67,16 @@ function initializeGrid(value) {
 initializeGrid(slider.value);
 
 // Update the grid when the slider value changes
+
+  // Prevent scrolling when interacting with the slider
+slider.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+});
+
+slider.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+});
+
 slider.oninput = function () {
     initializeGrid(this.value);
 };
