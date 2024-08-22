@@ -11,13 +11,26 @@
     .slider {
         transform: rotate(-0deg); /* Rotates the slider to make it vertical */
         margin: 2vh 0;
-        width: 40vw; /* Long height for the vertical slider */
-        height: 1vh; /* Narrow width for the vertical slider */
+        width: 60vw; /* Long height for the vertical slider */
+        height: 4vh; /* Narrow width for the vertical slider */
+        border-radius: 15px;
+    }
+
+    .slider::-webkit-slider-thumb {
+        width: 50px;
+        height: 50px;
 
     }
+    
+    .slider::-moz-range-thumb {
+        width: 50px;
+        height: 50px;
+    }
+
     .button-container {
         display: flex;
         flex-direction: row;
+        width: 95vw;
     }
 
     .grid-container {
@@ -56,7 +69,7 @@
         align-items: center;
         justify-content: center;
         height: 12vh;
-        width: 50vw;
+        width: 70vw;
         font-family: 'Quicksand', sans-serif;
         color: #ca8f48;
         margin-top: 2vh
