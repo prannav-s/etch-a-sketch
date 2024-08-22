@@ -8,38 +8,62 @@ const buttons = document.querySelectorAll("button");
 
 let color = '#706d6e'
 
-for (let i = 0; i < 256; i++) {
-  const gridItem = document.createElement('div');
-  
-  gridItem.classList.add('grid-item');
-  gridItem.style.backgroundColor = '#c9cacb';
-  gridContainer.appendChild(gridItem);
+const slider = document.getElementById('slider');
+let sliderValue = document.getElementById('sliderValue');
 
-  gridItem.addEventListener('mouseover', function() {
-    let currentColor = window.getComputedStyle(gridItem).backgroundColor;
-    console.log(`Current Color: ${currentColor}`);
-    if (gridContainer.classList.contains("rainbow")) {
-        color = getRandomRGB()
-        gridItem.style.backgroundColor = color
-    }
-    else if (gridContainer.classList.contains("shader")) {
-        color = adjustColorTowardsTarget(currentColor, '#706d6e', 0.2)
-        gridItem.style.backgroundColor = color
-    }
-    else if (gridContainer.classList.contains("lightener")) {
-        color = adjustColorTowardsTarget(currentColor, '#c9cacb', 0.2)
-        gridItem.style.backgroundColor = color
-    }
-    else {
-        gridItem.style.backgroundColor = color;
-    }
 
-    console.log(`Mouse over on div ${i + 1}`);
-  });
+function initializeGrid(value) {
+    sliderValue.innerText = value + " x " + value;
+    const gridElements = value * value;
+
+    // Clear any existing grid items
+    const gridItems = document.querySelectorAll(".grid-item");
+    gridItems.forEach((item) => {
+        gridContainer.removeChild(item);
+    });
+
+    // Create and append new grid items
+    for (let i = 0; i < gridElements; i++) {
+        const gridItem = document.createElement('div');
+        gridItem.classList.add('grid-item');
+        gridItem.style.backgroundColor = '#c9cacb';
+        gridItem.style.flex = `0 0 calc(100% / ${value})`;
+        gridContainer.appendChild(gridItem);
+
+        // Add mouseover event listener for color change
+        gridItem.addEventListener('mouseover', function () {
+            let currentColor = window.getComputedStyle(gridItem).backgroundColor;
+            console.log(`Current Color: ${currentColor}`);
+            if (gridContainer.classList.contains("rainbow")) {
+                color = getRandomRGB();
+                gridItem.style.backgroundColor = color;
+            } else if (gridContainer.classList.contains("shader")) {
+                color = adjustColorTowardsTarget(currentColor, '#706d6e', 0.2);
+                gridItem.style.backgroundColor = color;
+            } else if (gridContainer.classList.contains("lightener")) {
+                color = adjustColorTowardsTarget(currentColor, '#c9cacb', 0.2);
+                gridItem.style.backgroundColor = color;
+            } else {
+                gridItem.style.backgroundColor = color;
+            }
+            console.log(`Mouse over on div ${i + 1}`);
+        });
+    }
 }
+
+// Initialize the grid on page load
+initializeGrid(slider.value);
+
+// Update the grid when the slider value changes
+slider.oninput = function () {
+    initializeGrid(this.value);
+};
+
+
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
+        
         gridContainer.classList.remove('rainbow')
         gridContainer.classList.remove('shader')
         gridContainer.classList.remove('lightener')

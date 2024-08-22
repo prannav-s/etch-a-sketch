@@ -1,0 +1,129 @@
+@media screen and (max-width: 980px) {
+    .item-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 80vw;
+    
+    }
+
+    .slider {
+        transform: rotate(-0deg); /* Rotates the slider to make it vertical */
+        margin: 2vh 0;
+        width: 40vw; /* Long height for the vertical slider */
+        height: 1vh; /* Narrow width for the vertical slider */
+
+    }
+    .button-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 95vw; /* Adjust the width as needed */
+      }
+
+    button {
+        font-family: 'Quicksand', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #ca8f48;
+        border-radius: 40px;
+        border-color: #eee;
+        height: 6vh;
+        width: 15vw;
+        padding: 10px;
+        font-weight: 500;
+        font-size: 3vw;
+        color: white;
+        margin: 2vh 0.9vw;
+        text-align: center;
+    }
+
+    .slider-container {
+        text-align: center;
+        background-color: white;
+        padding: 0px 5px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 12vh;
+        width: 50vw;
+        font-family: 'Quicksand', sans-serif;
+        color: #ca8f48;
+        margin-top: 2vh
+    }
+
+    
+}
+
+@media screen and (max-width: 500px) {
+
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100vw;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 95vw; /* Adjust the width as needed */
+      }
+
+    button {
+        font-family: 'Quicksand', sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #ca8f48;
+        border-radius: 40px;
+        border-color: #eee;
+        height: 6vh;
+        width: 100px;
+        padding: 10px;
+        font-weight: 500;
+        font-size: 20px;
+        color: white;
+        margin: 3vh 1vw;
+        text-align: center;
+    }
+
+    .slider-container {
+        text-align: center;
+        background-color: white;
+        padding: 0px 5px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 12vh;
+        width: 50vw;
+        font-family: 'Quicksand', sans-serif;
+        color: #ca8f48;
+        margin-top: 2vh
+    }
+
+    
+}
+
+@media screen and (max-width: 380px) {
+    .header {
+        font-size: 24px;
+    }
+}

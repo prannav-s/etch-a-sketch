@@ -5,24 +5,29 @@
   <title>etch-a-sketch</title>
   <script src = 'script.js' defer></script>
   <link rel="stylesheet" href="style.css">
-  <!-- <link rel="stylesheet" href="mediaqueries.css"> -->
-
+  <link rel="stylesheet" href="mediaqueries.css">
 </head>
 <body>
     <div class="border">
         <div class="header">Etch-A-Sketch</div>
-        <div class = "grid-container">
-        </div>
-        <div class="controls-container">
-            <div class="button-container">
-                <button class="classic">classic</button>
-                <button class="rainbow">rainbow</button>
-                <button class="shader">shader</button>
-                <button class="lightener">lightener</button>
-                <button class="eraser">eraser</button>
-                <button class="clear">clear all</button>
+        <div class="item-container">
+            <div class="controls-container">
+                <div class="button-container">
+                    <button class="classic">classic</button>
+                    <button class="rainbow">rainbow</button>
+                    <button class="shader">shader</button>
+                    <button class="lightener">lightener</button>
+                    <button class="eraser">eraser</button>
+                    <button class="clear">clear all</button>
+                </div>
             </div>
-        </div>
-    </div> 
+            <div class = "grid-container">
+            </div>
+            <div class="slider-container">
+                <input type="range" min="8" max="32" value="16" id="slider" class="slider">
+                <p>Grid Size: <span id="sliderValue">16 x 16</span></p>
+            </div>
+        </div> 
+    </div>
 </body>
 </html>
