@@ -17,14 +17,14 @@
     }
 
     .slider::-webkit-slider-thumb {
-        width: 80px;
-        height: 80px;
+        width: 6vh;
+        height: 6vh;
 
     }
     
     .slider::-moz-range-thumb {
-        width: 80px;
-        height: 80px;
+        width: 6vh;
+        height: 6vh;
     }
 
     .button-container {
@@ -141,14 +141,14 @@
     }
 
     .slider::-webkit-slider-thumb {
-        width: 50px;
-        height: 50px;
+        width: 6vh;
+        height: 6vh;
 
     }
     
     .slider::-moz-range-thumb {
-        width: 50px;
-        height: 50px;
+        width: 6vh;
+        height: 6vh;
     }
 
     
