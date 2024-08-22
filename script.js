@@ -71,10 +71,12 @@ initializeGrid(slider.value);
   // Prevent scrolling when interacting with the slider
 slider.addEventListener('touchstart', function(e) {
     e.preventDefault();
+    initializeGrid(this.value);
 });
 
 slider.addEventListener('touchmove', function(e) {
     e.preventDefault();
+    initializeGrid(this.value);
 });
 
 slider.oninput = function () {
