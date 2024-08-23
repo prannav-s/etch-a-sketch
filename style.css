@@ -133,3 +133,8 @@ button:hover {
     background: #706d6e;
     color: white;
 }
+
+button.active {
+    background: #706d6e;
+    color: white;
+}

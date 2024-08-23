@@ -90,6 +90,9 @@ buttons.forEach((button) => {
         gridContainer.classList.remove('shader')
         gridContainer.classList.remove('lightener')
 
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+
         if (button.className === "clear") {
             gridItems = document.querySelectorAll(".grid-item");
             gridItems.forEach((item) => {
@@ -109,6 +112,8 @@ buttons.forEach((button) => {
             else if (button.className === "lightener")
                 gridContainer.classList.add('lightener')
         }
+
+        button.classList.add('active')
     });
 });
 
